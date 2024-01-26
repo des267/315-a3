@@ -18,11 +18,11 @@ import './emailcard.component.css';
  * @param email An email object
  * @return {JSX.Element} Container displayed email information
  */
-const emailCard = ({ email }) => {
+const EmailCard = ({ email }) => {
 	const {id, from, address, message, time, subject, tag, read} = email;
 
 	return (
-		<div className='email-card'>
+		<div className='emailCard'>
 			<h4>subject: {subject}</h4>
 			<p>from: {from}</p>
 			<p>address: {address}</p>
@@ -30,3 +30,5 @@ const emailCard = ({ email }) => {
 		</div>
 	);
 }
+
+export default EmailCard;
