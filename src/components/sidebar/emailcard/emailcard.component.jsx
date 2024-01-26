@@ -9,6 +9,7 @@
  * Date: January 26, 2024
  */
 import react from "react";
+import './emailcard.component.css';
 
 /**
  * A container of information that represents an email. Each
@@ -21,7 +22,7 @@ const emailCard = ({ email }) => {
 	const {id, from, address, message, time, subject, tag, read} = email;
 
 	return (
-		<div>
+		<div className='email-card'>
 			<h4>subject: {subject}</h4>
 			<p>from: {from}</p>
 			<p>address: {address}</p>
