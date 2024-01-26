@@ -1,3 +1,17 @@
 .App {
     text-align: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.sidebar {
+    display: flex;
+    overflow-y: auto;
+}
+
+.emailBody {
+    background: aliceblue;
+    flex-grow: 1;
 }

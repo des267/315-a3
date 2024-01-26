@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
+import EmailCardList from "./components/sidebar/emailcardlist/emailcardlist.component";
 
 function App() {
 	// State variables
@@ -19,7 +20,12 @@ function App() {
 
 	return (
 		<div className="App">
-
+			<div className="sidebar">
+				<EmailCardList emails={emails}/>
+			</div>
+			<div className="emailBody">
+				<h1>hello</h1>
+			</div>
 		</div>
 	);
 }
