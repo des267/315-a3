@@ -9,9 +9,27 @@
 .inboxTrashSidebar {
     display: flex;
     flex-direction: column;
+    outline-style: solid;
+    margin-right: 0.5vw;
+    width: 10vw;
 }
 
-.emailsidebar {
+#inboxTrash {
+    outline-style: solid;
+    outline-width: 0.1vw;
+    padding: 1vw;
+    margin: 1vw;
+}
+
+#inboxTrash:hover {
+    background: lightblue;
+}
+
+.inboxTrashSidebar img {
+    width: 3vw;
+}
+
+.emailSidebar {
     display: flex;
     overflow-y: auto;
 }

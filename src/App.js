@@ -21,13 +21,13 @@ function App() {
 	return (
 		<div className="App">
 			<div className="inboxTrashSidebar">
-				<div>
+				<div id="inboxTrash">
 					<p>Inbox</p>
-					<img src="./icons/inbox.png" alt="inbox icon"/>
+					<img src="https://static.vecteezy.com/system/resources/previews/000/443/029/original/vector-inbox-icon.jpg" alt="inbox icon"/>
 				</div>
-				<div>
+				<div id="inboxTrash">
 					<p>Trash</p>
-					<img src="./icons/trash-mail.png" alt="trash icon"/>
+					<img src="https://cdn-icons-png.flaticon.com/512/81/81132.png" alt="trash icon"/>
 				</div>
 			</div>
 			<div className="emailSidebar">
