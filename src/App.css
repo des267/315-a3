@@ -6,7 +6,12 @@
     height: 100vh;
 }
 
-.sidebar {
+.inboxTrashSidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.emailsidebar {
     display: flex;
     overflow-y: auto;
 }
@@ -14,4 +19,5 @@
 .emailBody {
     background: aliceblue;
     flex-grow: 1;
+    overflow-y: auto;
 }

@@ -20,7 +20,17 @@ function App() {
 
 	return (
 		<div className="App">
-			<div className="sidebar">
+			<div className="inboxTrashSidebar">
+				<div>
+					<p>Inbox</p>
+					<img src="./icons/inbox.png" alt="inbox icon"/>
+				</div>
+				<div>
+					<p>Trash</p>
+					<img src="./icons/trash-mail.png" alt="trash icon"/>
+				</div>
+			</div>
+			<div className="emailSidebar">
 				<EmailCardList emails={emails}/>
 			</div>
 			<div className="emailBody">
