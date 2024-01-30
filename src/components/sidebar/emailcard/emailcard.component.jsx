@@ -19,10 +19,10 @@ import './emailcard.component.css';
  * @return {JSX.Element} Container displayed email information
  */
 const EmailCard = ({ email }) => {
-	const {id, from, address, message, time, subject, tag, read} = email;
+	const {id, from, address, time, subject, read} = email;
 
 	return (
-		<div className='emailCard'>
+		<div className='emailCard' id={id}>
 			<h4>subject: {subject}</h4>
 			<p>from: {from}</p>
 			<p>address: {address}</p>
