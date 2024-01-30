@@ -1,4 +1,3 @@
-import react from "react";
 import './emailcardlist.component.css';
 import '../emailcard/emailcard.component';
 import EmailCard from "../emailcard/emailcard.component";

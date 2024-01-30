@@ -8,7 +8,7 @@
  * Author: Desmond Stular
  * Date: January 26, 2024
  */
-import react from "react";
+
 import './emailcard.component.css';
 
 /**
@@ -22,7 +22,7 @@ import './emailcard.component.css';
  */
 const EmailCard = ({ email, activeId, clickHandler }) => {
 	const {id, from, address, time, subject, read} = email;
-	let className = "";
+	let className = 'emailCardUnread';
 
 	// Pick CSS class based on if card active, read, or unread
 	if (id === activeId) {
@@ -30,9 +30,6 @@ const EmailCard = ({ email, activeId, clickHandler }) => {
 	}
 	else if (read === "true") {
 		className = 'emailCardRead';
-	}
-	else {
-		className = 'emailCardUnread';
 	}
 
 	return (
