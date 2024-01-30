@@ -1,14 +1,15 @@
 .App {
     text-align: center;
     display: flex;
-    flex: 1;
     flex-direction: row;
+    flex-shrink: 0;
     height: 100vh;
 }
 
 .inboxTrashSidebar {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     outline-style: solid;
     margin-right: 0.5vw;
     width: 10vw;
@@ -32,12 +33,13 @@
 .emailSidebar {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     overflow-y: auto;
     height: 100vh;
 }
 
-.emailBody {
+.emailBodyContainer {
     background: aliceblue;
-    flex-grow: 1;
     overflow-y: auto;
+    flex-grow: 1;
 }

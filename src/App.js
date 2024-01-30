@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import EmailCardList from "./components/sidebar/emailcardlist/emailcardlist.component";
 import SearchBar from "./components/sidebar/searchbar/searchbar.component";
+import EmailBody from "./components/emailbody/emailbody.component";
 
 function App() {
 	// State variables
@@ -11,6 +12,7 @@ function App() {
 	const [currentBox, setCurrentBox] = useState("Inbox");
 	const [search, setSearch] = useState("");
 	const [activeId, setActiveId] = useState(NaN);
+	const [activeEmail, setActiveEmail] = useState(null);
 
 	// Retrieves emails from weblink
 	useEffect(() => {
@@ -48,11 +50,16 @@ function App() {
 		setEmails(filtered);
 	},[activeId, currentBox, allEmails, search]);
 
+	// Changes Email Body to active email
+	useEffect(() => {
+		setActiveEmail(emails.find(x => x.id === activeId));
+	}, [activeId]);
+
 	// If no emails in the mailbox, display message
 	const EmptyBox = function emptyBox({message}) {
 		if (emails.length === 0) {
 			return (
-				<p>{message}</p>
+				<p className="emailCardEmpty">{message}</p>
 			);
 		}
 	}
@@ -99,8 +106,8 @@ function App() {
 				<EmptyBox message="No emails"></EmptyBox>
 				<EmailCardList clickHandler={emailClick} emails={emails} activeId={activeId}/>
 			</div>
-			<div className="emailBody">
-				<h1>hello</h1>
+			<div className="emailBodyContainer">
+				<EmailBody email={activeEmail}/>
 			</div>
 		</div>
 	);
