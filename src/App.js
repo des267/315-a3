@@ -8,8 +8,9 @@ function App() {
 	// State variables
 	const [allEmails, setAllEmails] = useState([]);
 	const [emails, setEmails] = useState([]);
-	const [currentBox, setCurrentBox] = useState("inbox");
+	const [currentBox, setCurrentBox] = useState("Inbox");
 	const [search, setSearch] = useState("");
+	const [activeId, setActiveId] = useState(NaN);
 
 	// Retrieves emails from weblink
 	useEffect(() => {
@@ -22,10 +23,21 @@ function App() {
 		fetchEmails();
 	}, []);
 
+	// Filters emails by current box, search, and active email
+	// If active state changed, set email to read
 	useEffect(() => {
+		// if active changed, set new active to read
+		if (!isNaN(activeId)) {
+			let newEmails = allEmails;
+			let index = newEmails.findIndex(x => x.id === activeId);
+			console.log(newEmails[index]);
+			newEmails[index].read = "true";
+			setAllEmails(newEmails);
+		}
+
 		// Filter all emails to current box
 		let filtered = allEmails.filter(email =>
-			email["tag"] === currentBox
+			email["tag"] === currentBox.toLowerCase()
 		);
 		// If not empty search, filter
 		if (search !== "") {
@@ -34,45 +46,58 @@ function App() {
 			);
 		}
 		setEmails(filtered);
-	},[allEmails, search]);
+	},[activeId, currentBox, allEmails, search]);
 
 	// If no emails in the mailbox, display message
 	const EmptyBox = function emptyBox({message}) {
 		if (emails.length === 0) {
-			return <p>{message}</p>;
+			return (
+				<p>{message}</p>
+			);
 		}
 	}
 
+	// Filter emails by search input
 	const searchHandler = e => {
 		setSearch(e.target.value);
 	};
 
+	// Click on inbox, switch to
 	const inboxClick = e => {
-		//
+		setCurrentBox("Inbox");
 	};
 
+	// Click on trash box, switch to
 	const trashClick = e => {
-		//
+		setCurrentBox("Deleted");
+	};
+
+	// Click on email, set to active
+	const emailClick = e => {
+		if (e.target.id !== activeId) {
+			setActiveId(e.target.id);
+		}
 	};
 
 	return (
 		<div className="App">
 			<div className="inboxTrashSidebar">
-				<div id="inboxTrash">
+				<div id="inboxTrash" onClick={inboxClick}>
 					<p>Inbox</p>
 					<img
-						src="https://static.vecteezy.com/system/resources/previews/000/443/029/original/vector-inbox-icon.jpg"
+						src="https://www.svgrepo.com/show/55149/inbox.svg"
 						alt="inbox icon"/>
 				</div>
-				<div id="inboxTrash">
+				<div id="inboxTrash" onClick={trashClick}>
 					<p>Trash</p>
 					<img src="https://cdn-icons-png.flaticon.com/512/81/81132.png" alt="trash icon"/>
 				</div>
 			</div>
 			<div className="emailSidebar">
+				<h2>{currentBox}</h2>
 				<SearchBar placeholder="Search" inputHandler={searchHandler}/>
 				<EmptyBox message="No emails"></EmptyBox>
-				<EmailCardList emails={emails}/>
+				<EmailCardList clickHandler={emailClick} emails={emails} activeId={activeId}/>
 			</div>
 			<div className="emailBody">
 				<h1>hello</h1>

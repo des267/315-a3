@@ -4,10 +4,7 @@
  * Contains css styling for the react component EmailCard.
  */
 
-.emailCard {
-    display: flex;
-    flex-direction: column;
-    background-color: #95dada;
+.emailCardActive, .emailCardRead, .emailCardUnread {
     border: 1px solid grey;
     border-radius: 5px;
     padding: 16px;
@@ -15,4 +12,24 @@
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     max-width: 100%;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.emailCardActive {
+    background-color: #ffffb3;
+}
+
+.emailCardRead {
+    background-color: #e3e3e3;
+}
+
+.emailCardUnread {
+    background-color: #55ffcd;
+}
+
+.emailCardActive:hover, .emailCardRead:hover, .emailCardUnread:hover {
+    background: #ffffb3;
 }

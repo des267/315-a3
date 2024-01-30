@@ -16,17 +16,31 @@ import './emailcard.component.css';
  * card displays the subject, from, from address, and the
  * timestamp.
  * @param email An email object
+ * @param activeId ID number of clicked on active email displayed
+ * @param clickHandler Click handle that retrieves email ID on click
  * @return {JSX.Element} Container displayed email information
  */
-const EmailCard = ({ email }) => {
+const EmailCard = ({ email, activeId, clickHandler }) => {
 	const {id, from, address, time, subject, read} = email;
+	let className = "";
+
+	// Pick CSS class based on if card active, read, or unread
+	if (id === activeId) {
+		className = 'emailCardActive';
+	}
+	else if (read === "true") {
+		className = 'emailCardRead';
+	}
+	else {
+		className = 'emailCardUnread';
+	}
 
 	return (
-		<div className='emailCard' id={id}>
-			<h4>subject: {subject}</h4>
-			<p>from: {from}</p>
-			<p>address: {address}</p>
-			<p>timestamp: {time}</p>
+		<div id={id} className={className} onClick={clickHandler}>
+			subject: {subject}<br/>
+			from: {from}<br/>
+			address: {address}<br/>
+			timestamp: {time}
 		</div>
 	);
 }
