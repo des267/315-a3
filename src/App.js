@@ -1,3 +1,10 @@
+/**
+ * App.js
+ *
+ *     Author: Desmond Stular
+ * Created on: January 31, 2024
+ */
+
 import './App.css';
 import {useEffect, useState} from "react";
 import axios from "axios";

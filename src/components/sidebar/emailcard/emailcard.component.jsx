@@ -11,15 +11,7 @@
 
 import './emailcard.component.css';
 
-/**
- * A container of information that represents an email. Each
- * card displays the subject, from, from address, and the
- * timestamp.
- * @param email An email object
- * @param activeId ID number of clicked on active email displayed
- * @param clickHandler Click handle that retrieves email ID on click
- * @return {JSX.Element} Container displayed email information
- */
+
 const EmailCard = ({ email, activeId, clickHandler }) => {
 	const {id, from, address, time, subject, read} = email;
 	let className = 'emailCardUnread';

@@ -1,3 +1,15 @@
+/**
+ * emailbody.component.jsx
+ *
+ * This component represents the email itself
+ * when displayed in the body container of the
+ * application. Displays the message and all other
+ * information.
+ *
+ * Author: Desmond Stular
+ * Date: January 30, 2024
+ */
+
 import './emailbody.component.css';
 
 const EmailBody = ({ email }) => {

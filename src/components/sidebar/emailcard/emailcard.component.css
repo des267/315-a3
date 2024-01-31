@@ -1,8 +1,3 @@
-/*
- * emailcard.component.css
- *
- * Contains css styling for the react component EmailCard.
- */
 
 .emailCardActive, .emailCardRead, .emailCardUnread, .emailCardEmpty {
     border: 1px solid #000000;
