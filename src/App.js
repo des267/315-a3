@@ -106,7 +106,8 @@ function App() {
 				<EmptyBox message="No emails"></EmptyBox>
 				<EmailCardList clickHandler={emailClick} emails={emails} activeId={activeId}/>
 			</div>
-			<div className="emailBodyContainer">
+			<div className="emailBodyContainer" contentEditable="true" data-placeholder="Nothing to show here">
+
 				<EmailBody email={activeEmail}/>
 			</div>
 		</div>

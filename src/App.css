@@ -43,3 +43,11 @@
     overflow-y: auto;
     flex-grow: 1;
 }
+
+.emailBodyContainer:empty:before {
+    justify-content: center;
+    text-align: center;
+    display: block;
+    content: attr(data-placeholder);
+    color: gray;
+}
